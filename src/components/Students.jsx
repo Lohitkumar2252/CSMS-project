@@ -177,9 +177,7 @@ export function StudentList() {
                         >
                           Delete
                         </button>
-                        <button className="mr-3 font-medium text-gray-600 hover:text-gray-900">
-                          Edit
-                        </button>
+                        
                         <Link
                           to={`/studentlist/${s.rollNo}`}
                           className="mr-3 font-medium text-indigo-600 hover:text-indigo-500"

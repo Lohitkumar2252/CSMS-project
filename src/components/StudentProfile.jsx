@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DeleteConfimationMsg } from "./DeleteConfimationMsg";
 import { useParams, Link } from "react-router";
 import { myContext } from "../myContext";
+import EditStudent from "./EditStudent";
 
 /* UI only: no state, context or handlers.
    Pass a `student` prop; the default below is just placeholder data for layout. */
@@ -43,10 +44,15 @@ export default function StudentProfilePage({
   const student = students.find((s) => s.rollNo === id);
 
   if (!student) return <p>Student not found</p>;
+  const [edit, setedit] = useState(false);
 
   if (deleteMsg) {
     return <DeleteConfimationMsg student={student} />;
-  } else {
+  }
+  else if (edit) {
+    return <EditStudent setedit={setedit} student={student} />;
+  }
+  else {
     return (
       <div className="min-h-screen bg-gray-50 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
@@ -75,7 +81,7 @@ export default function StudentProfilePage({
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <button className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                  <button className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50" onClick={() => setedit(true)}>
                     Edit
                   </button>
                   <button

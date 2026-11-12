@@ -9,7 +9,7 @@ export function studentReducer(state, action) {
     case "UPDATE":
       return state.map((s) =>
         s.rollNo === action.payload.rollNo
-          ? { ...s, ...action.payload.changes }
+          ? { ...s, ...action.payload }
           : s
       );
 
