@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { myContext } from "../myContext.jsx";
 import StudentProfilePage from "./StudentProfile.jsx";
 import { DeleteConfimationMsg } from "./DeleteConfimationMsg.jsx";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const inputCls =
   "w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200";
@@ -30,14 +30,16 @@ function Avatar({ name, large = false }) {
 
 /* ---------- 1. Student list page (search + filters + table) ---------- */
 export function StudentList() {
-  const { students, studentData } = useContext(myContext);
-
-  const [selectedStudent, setselectedStudent] = useState(null);
+  const { students, studentData, deleteMsg, setdeleteMsg } = useContext(myContext);
 
   const [search, setSearch] = useState("");
   const [department, setDepartment] = useState("All departments");
   const [course, setCourse] = useState("All courses");
   const [year, setYear] = useState("All years");
+  const [selectedStudent, setSelectedStudent] = useState(null);
+
+
+
   console.log(students);
   const filteredStudents = students.filter((s) => {
     const matchesSearch = s.name
@@ -54,14 +56,10 @@ export function StudentList() {
   const courses = [...new Set(students.map((s) => s.course))];
   const years = [...new Set(students.map((s) => s.year))];
 
-  if (selectedStudent) {
-    return (
-      <StudentProfilePage
-        student={selectedStudent}
-        setselectedStudent={setselectedStudent}
-        
-      />
-    );
+  
+
+  if (deleteMsg) {
+    return <DeleteConfimationMsg  student={selectedStudent}/>;
   } else {
     return (
       <div className="min-h-screen bg-gray-50 px-4 py-8 sm:px-6 lg:px-8">
@@ -173,19 +171,21 @@ export function StudentList() {
                       <td className="whitespace-nowrap px-6 py-4 text-right">
                         <button
                           className="font-medium text-gray-600 hover:text-gray-900  mr-3"
-                          onClick={() => setdeleteStudent(s)}
+                          onClick={() => {setdeleteMsg(true)
+                            setSelectedStudent(s)
+                          }}
                         >
                           Delete
                         </button>
                         <button className="mr-3 font-medium text-gray-600 hover:text-gray-900">
                           Edit
                         </button>
-                        <button
+                        <Link
+                          to={`/studentlist/${s.rollNo}`}
                           className="mr-3 font-medium text-indigo-600 hover:text-indigo-500"
-                          onClick={() => setselectedStudent(s)}
                         >
                           View
-                        </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
