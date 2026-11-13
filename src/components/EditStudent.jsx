@@ -28,7 +28,7 @@ export default function EditStudent({ setedit, student }) {
     .join("")
     .slice(0, 2)
     .toUpperCase();
-
+ console.log(form)
   return (
     <div className="flex min-h-screen items-start justify-center bg-gray-100 px-4 py-8">
       <div className="w-full max-w-2xl rounded-2xl bg-white p-5 shadow-lg shadow-gray-200/60 sm:p-8">
@@ -99,20 +99,7 @@ export default function EditStudent({ setedit, student }) {
                 className={inputClass}
               />
             </div>
-            <div>
-              <label htmlFor="rollNo" className={labelClass}>
-                Roll Number
-              </label>
-              <input
-                id="rollNo"
-                name="rollNo"
-                type="number"
-                value={form.rollNo}
-                onChange={(e) => handleChange(e)}
-                placeholder="roll number"
-                className={inputClass}
-              />
-            </div>
+            
 
             <div>
               <label htmlFor="course" className={labelClass}>

@@ -35,7 +35,7 @@ function ClassCell({ item, subjectStyles }) {
 
 export default function TimeTable() {
   // Highlights today's column (Mon = 1 ... Sat = 6). Sunday highlights nothing.
-  const { scheduleState, setscheduleState, subjectNames, subjectStyles } =
+  const { scheduleState, setscheduleState, subjectNames, subjectStyles, studentData } =
     useContext(myContext);
 
   function handleEditTimeTable(form, state = scheduleState) {
@@ -66,6 +66,7 @@ export default function TimeTable() {
         days={days}
         slots={slots}
         handleEditTimeTable={handleEditTimeTable}
+        teachers={studentData.faculty}
       />
     );
   } else {

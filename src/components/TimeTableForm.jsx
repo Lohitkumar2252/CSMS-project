@@ -15,8 +15,8 @@ export default function TimeTableForm({
   days,
   slots,
   handleEditTimeTable,
+  teachers
 }) {
-  
   const [form, setForm] = useState({
     subject: "",
     teacher: "",
@@ -29,8 +29,6 @@ export default function TimeTableForm({
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
- 
-
   return (
     <div className="flex min-h-screen items-start justify-center bg-gray-100 px-4 py-8">
       <div className="w-full max-w-2xl rounded-2xl bg-white p-5 shadow-lg shadow-gray-200/60 sm:p-8">
@@ -42,12 +40,8 @@ export default function TimeTableForm({
           ← Back to time table
         </button>
 
-        <h1 className="text-2xl font-bold text-gray-900">
-         Edit Schedule
-        </h1>
-        <p className="mb-6 mt-1 text-sm text-gray-500">
-         
-        </p>
+        <h1 className="text-2xl font-bold text-gray-900">Edit Schedule</h1>
+        <p className="mb-6 mt-1 text-sm text-gray-500"></p>
 
         <form>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -79,14 +73,21 @@ export default function TimeTableForm({
               <label htmlFor="teacher" className={labelClass}>
                 Teacher
               </label>
-              <input
+              <select
                 id="teacher"
                 name="teacher"
                 value={form.teacher}
                 onChange={(e) => handleChange(e)}
-                placeholder="e.g. Dr. Mishra"
+                placeholder="e.g. AMOD KUMAR BAGH"
                 className={inputClass}
-              />
+              >
+                <option>Select Day</option>
+                {teachers.map((t,i) => (
+                  <option key={i} value={t.facultyName}>
+                    {t.facultyName}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Day */}
@@ -101,11 +102,8 @@ export default function TimeTableForm({
                 onChange={(e) => handleChange(e)}
                 className={inputClass}
               >
-                <option>
-                    Select Day
-                  </option>
+                <option>Select Day</option>
                 {days.map((d) => (
-                  
                   <option key={d} value={d}>
                     {d}
                   </option>
@@ -125,9 +123,7 @@ export default function TimeTableForm({
                 onChange={(e) => handleChange(e)}
                 className={inputClass}
               >
-                 <option>
-                    Select period
-                  </option>
+                <option>Select period</option>
                 {slots.map((p) => {
                   if (p.id === "break") return null;
                   return (
@@ -151,9 +147,7 @@ export default function TimeTableForm({
                 onChange={(e) => handleChange(e)}
                 className={inputClass}
               >
-                 <option>
-                    Select Year
-                  </option>
+                <option>Select Year</option>
                 <option value="1st">1st year</option>
                 <option value="2nd">2nd year</option>
                 <option value="3rd">3rd year</option>
@@ -161,11 +155,9 @@ export default function TimeTableForm({
               </select>
             </div>
           </div>
-          
 
           {/* Actions */}
           <div className="mt-7 flex flex-col-reverse gap-3 border-t border-gray-100 pt-5 sm:flex-row sm:items-center">
-            
             <div className="flex flex-col-reverse gap-3 sm:ml-auto sm:flex-row">
               <button
                 type="button"
@@ -177,7 +169,7 @@ export default function TimeTableForm({
               <button
                 type="submit"
                 className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700"
-                onClick={(e)=>{
+                onClick={(e) => {
                   e.preventDefault();
                   handleEditTimeTable(form);
                   onClose();
@@ -185,12 +177,11 @@ export default function TimeTableForm({
               >
                 Save
               </button>
-                {console.log(form)}
+            
             </div>
           </div>
         </form>
       </div>
     </div>
   );
-
 }
