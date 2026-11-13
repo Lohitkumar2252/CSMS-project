@@ -16,6 +16,7 @@ export default function AddForm() {
     name: "",
     email: "",
     phone: "",
+    rollNo: "",
     department: "",
     course: "",
     year: "",
@@ -49,6 +50,16 @@ export default function AddForm() {
                 className={inputCls}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="name@example.com"
+              />
+            </label>
+            <label className="block">
+              <span className="mb-1 block text-sm font-medium text-gray-700">
+                RollNo (Required)
+              </span>
+              <input
+                className={inputCls}
+                onChange={(e) => setForm({ ...form, rollNo: e.target.value })}
+               
               />
             </label>
             <label className="block">

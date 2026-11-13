@@ -25,11 +25,11 @@ export default function Navbar() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-bold text-white">
-            S
+          <div className="flex h-8 w-fit px-3 items-center justify-center rounded-lg bg-indigo-600 text-sm font-bold text-white tracking-widest">
+            GKCET
           </div>
           <span className="text-base font-semibold text-gray-900">
-            Student Management
+            CSE Department
           </span>
         </div>
 
