@@ -1,4 +1,4 @@
-export default function DashboardCard({ value, label }) {
+export default function DashboardCard({ value, label, icon, iconBg }) {
 
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md">
@@ -9,8 +9,9 @@ export default function DashboardCard({ value, label }) {
             {value}
           </p>
         </div>
-        <div className={`rounded-xl p-3`}>
-          icon
+        
+        <div className={`rounded-xl p-3 ${iconBg}`}>
+          {icon}
         </div>
       </div>    
     </div>

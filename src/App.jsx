@@ -18,6 +18,7 @@ import StudentProfilePage from "./components/StudentProfile.jsx";
 import TimeTable from "./components/TimeTable.jsx";
 import NoticeBoard from "./components/NoticeBoard.jsx";
 import Intro from "./components/Intro.jsx"; // new
+import Footer from "./components/Footer.jsx";
 
 // Skip the intro on repeat visits in the same session, and for reduced-motion users
 const skipIntro = () =>
@@ -70,6 +71,7 @@ const App = () => {
           <Route path="/timetable" element={<TimeTable />} />
           <Route path="/noticeboard" element={<NoticeBoard />} />
         </Routes>
+        <Footer/>
       </div>
     </myContext.Provider>
   );

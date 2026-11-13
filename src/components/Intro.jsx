@@ -50,7 +50,7 @@ export default function Intro({ onReveal, onDone }) {
     <div ref={root} className="fixed inset-0 z-[9999]">
       <div className="intro-panel absolute inset-0 bg-neutral-950" />
       <div className="absolute inset-0 grid place-items-center">
-        <div className="flex overflow-hidden py-1 text-[length:clamp(2rem,9vw,6rem)] font-extrabold leading-tight tracking-[0.08em] text-white underline">
+        <div className="flex overflow-hidden py-1 text-[length:clamp(2rem,9vw,6rem)] font-extrabold leading-tight tracking-[0.08em] text-white">
           {LOGO.split("").map((letter, i) => (
             <span key={i} className="intro-letter inline-block whitespace-pre">
               {letter}

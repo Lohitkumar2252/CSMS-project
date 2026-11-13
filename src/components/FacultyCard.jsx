@@ -1,5 +1,5 @@
 export default function FacultyCard({ name, designation, photo }) {
-  console.log(designation);
+  
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
       {/* Banner + avatar */}

@@ -5,6 +5,7 @@ import DashboardCard from "./DashboardCard.jsx";
 import RecentNotices from "./RecentNotices.jsx";
 import FacultyCard from "./FacultyCard.jsx";
 
+
 /* ---------- Icons (inline SVG, no extra dependencies) ---------- */
 const iconProps = {
   xmlns: "http://www.w3.org/2000/svg",
@@ -56,14 +57,20 @@ export default function Dashboard() {
     {
       label: "Total Students",
       value: students.length,
+      icon: StudentsIcon(),
+      iconBg: "bg-[#b9cdf8]",
     },
     {
       label: "Total Faculty",
       value: studentData.faculty.length,
+      icon: FacultyIcon(),
+      iconBg: "bg-[#b5fde6]",
     },
     {
       label: "Total Notices",
       value: notices.length,
+      icon: CoursesIcon(),
+      iconBg: "bg-[#fbceb6]",  
     },
   ];
   return (
@@ -83,7 +90,13 @@ export default function Dashboard() {
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {cardData.map((card, index) => (
-            <DashboardCard key={index} value={card.value} label={card.label} />
+            <DashboardCard
+              key={index}
+              value={card.value}
+              label={card.label}
+              icon={card.icon}
+              iconBg={card.iconBg}
+            />
           ))}
         </section>
         <div className="faculty mt-10">
@@ -106,6 +119,7 @@ export default function Dashboard() {
 
         {/* Recent activities */}
         <RecentNotices notices={notices} />
+        
       </div>
     </div>
   );
