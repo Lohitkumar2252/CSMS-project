@@ -356,9 +356,25 @@ export const studentData = {
     { courseId: "CSE102", courseName: "Data Structures and Algorithms" },
   ],
   faculty: [
-    { facultyId: "F001", facultyName: "Dr. John Smith" },
-    { facultyId: "F002", facultyName: "Prof. Jane Doe" },
+    {
+      facultyName: "AMOD KUMAR BAGH",
+      facultyDesignation:
+        "Assistant Professor, HOD, Department of Computer Science and Engineering",
+        photo: "/AMOD-KUMAR-BAGH.png"
+    },
+    {
+      facultyName: "Prof. Dr. Bhumika Panigrahi",
+      facultyDesignation: "Principal, GKCET",
+      photo: "/principal.png"
+    },
+    {
+      facultyName: "Pranati Nayak",
+      facultyDesignation:
+        "Assistant Professor, Department of Computer Science and Engineering,GKCET",
+        photo:"/Pranati-Nayak.png"
+    },
   ],
+
   departments: [
     {
       departmentId: "D001",
@@ -556,3 +572,41 @@ export const subjectNames = {
   Cloud: "Cloud Computing",
   Project: "Major Project",
 };
+
+export const initialNotices = [
+  {
+    id: 1,
+    title: "Mid-semester exam schedule released",
+    body: "The mid-semester examinations for all years will begin on 24 November. Check the department notice board for the subject-wise timetable and carry your admit card on every exam day.",
+    postedBy: "Examination Cell",
+    date: "12 Nov 2026",
+  },
+  {
+    id: 2,
+    title: "Campus placement drive: registration open",
+    body: "Final-year students can register for the upcoming campus placement drive. Update your resume and submit it to the placement cell before the deadline.",
+    postedBy: "Training & Placement Cell",
+    date: "11 Nov 2026",
+  },
+  {
+    id: 3,
+    title: "Annual tech fest: call for participants",
+    body: "Registrations are open for coding contests, hackathon and project exhibition. Teams of up to four students can participate.",
+    postedBy: "Student Council",
+    date: "10 Nov 2026",
+  },
+  {
+    id: 4,
+    title: "Library timing change",
+    body: "From Monday, the central library will remain open from 8:00 AM to 8:00 PM on weekdays during the exam period.",
+    postedBy: "Librarian",
+    date: "08 Nov 2026",
+  },
+  {
+    id: 5,
+    title: "Holiday on account of Kartika Purnima",
+    body: "The college will remain closed on 24 November. Regular classes will resume the next working day.",
+    postedBy: "Principal Office",
+    date: "05 Nov 2026",
+  },
+];

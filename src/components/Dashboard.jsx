@@ -2,6 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { myContext } from "../myContext.jsx";
 import DashboardCard from "./DashboardCard.jsx";
+import RecentNotices from "./RecentNotices.jsx";
+import FacultyCard from "./FacultyCard.jsx";
 
 /* ---------- Icons (inline SVG, no extra dependencies) ---------- */
 const iconProps = {
@@ -48,7 +50,7 @@ const CoursesIcon = () => (
 
 /* ---------- Main component ---------- */
 export default function Dashboard() {
-  const {students,  studentData} = useContext(myContext);
+  const { students, studentData, notices } = useContext(myContext);
 
   const cardData = [
     {
@@ -60,8 +62,8 @@ export default function Dashboard() {
       value: studentData.faculty.length,
     },
     {
-      label: "Total Courses",
-      value: studentData.courses.length,
+      label: "Total Notices",
+      value: notices.length,
     },
   ];
   return (
@@ -70,11 +72,12 @@ export default function Dashboard() {
         {/* Header */}
         <header className="mb-8">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-            Dashboard
+            Overview
           </h1>
         </header>
 
         {/* Stats */}
+
         <section
           aria-label="Key metrics"
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
@@ -83,24 +86,26 @@ export default function Dashboard() {
             <DashboardCard key={index} value={card.value} label={card.label} />
           ))}
         </section>
+        <div className="faculty mt-10">
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-2xl capitalize mb-4">
+            Faculty
+          </h2>
+          <div className="facultyContainer w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {studentData.faculty.map((e) => {
+              return (
+                <FacultyCard
+                  key={e.facultyName}
+                  name={e.facultyName}
+                  designation={e.facultyDesignation}
+                  photo={e.photo}
+                />
+              );
+            })}
+          </div>
+        </div>
 
         {/* Recent activities */}
-        <section
-          aria-label="Recent activities"
-          className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
-        >
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">
-              Recent Activities
-            </h2>
-            <button
-              type="button"
-              className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              View all
-            </button>
-          </div>
-        </section>
+        <RecentNotices notices={notices} />
       </div>
     </div>
   );
