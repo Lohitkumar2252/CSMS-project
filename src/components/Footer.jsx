@@ -1,4 +1,4 @@
-const developers = ["B. Lohit Kumar", "Aditya Prasad Dash"];
+const developers = ["B. Lohit Kumar", "Aditya Prasad Dash", "AMOD KUMAR BAGH"];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -15,6 +15,10 @@ export default function Footer() {
         {/* Credits */}
         <div className="text-xs text-gray-500">
           <p>
+            Guided By{" "}
+            <span className="font-medium text-gray-700">{developers[2]}</span>
+          </p>
+          <p>
             Built By{" "}
             <span className="font-medium text-gray-700">{developers[0]}</span>
           </p>
@@ -22,6 +26,7 @@ export default function Footer() {
             Presented By{" "}
             <span className="font-medium text-gray-700">{developers[1]}</span>
           </p>
+          
         </div>
       </div>
     </footer>
