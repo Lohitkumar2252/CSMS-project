@@ -5,7 +5,6 @@ import DashboardCard from "./DashboardCard.jsx";
 import RecentNotices from "./RecentNotices.jsx";
 import FacultyCard from "./FacultyCard.jsx";
 
-
 /* ---------- Icons (inline SVG, no extra dependencies) ---------- */
 const iconProps = {
   xmlns: "http://www.w3.org/2000/svg",
@@ -70,7 +69,7 @@ export default function Dashboard() {
       label: "Total Notices",
       value: notices.length,
       icon: CoursesIcon(),
-      iconBg: "bg-[#fbceb6]",  
+      iconBg: "bg-[#fbceb6]",
     },
   ];
   return (
@@ -99,6 +98,18 @@ export default function Dashboard() {
             />
           ))}
         </section>
+        <div className="principle mt-10">
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-2xl capitalize mb-4">
+            Principal
+          </h2>
+          <div className="facultyContainer w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            <FacultyCard
+              name="Prof. Dr. Bhumika Panigrahi"
+              designation="Principal, GKCET"
+              photo="/principal.png"    
+            />
+          </div>
+        </div>
         <div className="faculty mt-10">
           <h2 className="text-2xl font-bold text-gray-900 sm:text-2xl capitalize mb-4">
             Faculty
@@ -119,7 +130,6 @@ export default function Dashboard() {
 
         {/* Recent activities */}
         <RecentNotices notices={notices} />
-        
       </div>
     </div>
   );

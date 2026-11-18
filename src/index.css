@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Black Ops One", system-ui;
+}

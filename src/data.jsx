@@ -356,11 +356,7 @@ export const studentData = {
     { courseId: "CSE102", courseName: "Data Structures and Algorithms" },
   ],
   faculty: [
-    {
-      facultyName: "Prof. Dr. Bhumika Panigrahi",
-      facultyDesignation: "Principal, GKCET",
-      photo: "/principal.png",
-    },
+    
     {
       facultyName: "AMOD KUMAR BAGH",
       facultyDesignation:

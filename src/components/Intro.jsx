@@ -52,7 +52,7 @@ export default function Intro({ onReveal, onDone }) {
       <div className="absolute inset-0 grid place-items-center">
         <div className="flex overflow-hidden py-1 text-[length:clamp(2rem,9vw,6rem)] font-extrabold leading-tight tracking-[0.08em] text-white">
           {LOGO.split("").map((letter, i) => (
-            <span key={i} className="intro-letter inline-block whitespace-pre">
+            <span key={i} className="intro-letter inline-block whitespace-pre font-display">
               {letter}
             </span>
           ))}

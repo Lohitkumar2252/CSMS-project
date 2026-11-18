@@ -81,7 +81,7 @@ export default function TimeTableForm({
                 placeholder="e.g. AMOD KUMAR BAGH"
                 className={inputClass}
               >
-                <option>Select Day</option>
+                <option>Select Teacher</option>
                 {teachers.map((t,i) => (
                   <option key={i} value={t.facultyName}>
                     {t.facultyName}
